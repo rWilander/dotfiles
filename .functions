@@ -1,3 +1,45 @@
+# Helper to load/start services used for development
+# If service is running restarts if it makes sense
+function load() {
+	local service=$1
+
+	case "$service" in
+		mysql) 	
+			launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+			;;
+		apache)
+			if ps ax | grep httpd | grep -v grep > /dev/null
+			then
+				sudo apachectl restart
+			else
+				sudo apachectl start
+			fi
+			;;
+		*)
+			echo "Invalid service."
+			echo "Valid sercices: mysql | apache" 
+			;;
+	esac
+}
+
+# Helper to unload/stop services used for development
+function unload() {
+	local service=$1
+
+	case "$service" in
+		mysql) 	
+			launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+			;;
+		apache)
+			sudo apachectl stop
+			;;
+		*)
+			echo "Invalid service."
+			echo "Valid sercices: mysql | apache" 
+			;;
+	esac
+}
+
 # Simple calculator
 function calc() {
 	local result=""
