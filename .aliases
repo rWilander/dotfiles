@@ -1,3 +1,6 @@
+# Development
+alias chromedev='/Applications/ChromeCanary.app/Contents/MacOS/Google\ Chrome\ Canary --disable-web-security'
+
 # Tar helpers
 alias tar_c='tar cvfz'
 alias tar_e='tar -zxvf'
