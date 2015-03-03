@@ -1,3 +1,6 @@
+# Program shortcuts
+alias KeePass='mono /Applications/KeePass/KeePass.exe &'
+
 # Development
 alias chromedev='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security'
 
