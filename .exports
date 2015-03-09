@@ -26,3 +26,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # DRUSH path
 export PATH=$PATH:/Users/rwilander/drush
+
+# HOMEBREW path
+export PATH="/usr/local/sbin:$PATH"

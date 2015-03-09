@@ -7,6 +7,9 @@ function load() {
 		mysql) 	
 			launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 			;;
+		psql)
+			launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+			;;
 		apache)
 			if ps ax | grep httpd | grep -v grep > /dev/null
 			then
@@ -17,7 +20,7 @@ function load() {
 			;;
 		*)
 			echo "Invalid service."
-			echo "Valid sercices: mysql | apache" 
+			echo "Valid sercices: mysql | psql | apache" 
 			;;
 	esac
 }
@@ -30,12 +33,15 @@ function unload() {
 		mysql) 	
 			launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 			;;
+		psql)
+			launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+			;;
 		apache)
 			sudo apachectl stop
 			;;
 		*)
 			echo "Invalid service."
-			echo "Valid sercices: mysql | apache" 
+			echo "Valid sercices: mysql | psql | apache" 
 			;;
 	esac
 }
